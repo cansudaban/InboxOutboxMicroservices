@@ -1,0 +1,80 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/orders/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/orders/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/stocks/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/stocks/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/invoices/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/invoices/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ]
+    },
+    {
+      "DownstreamPathTemplate": "/health",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/health/orders",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/health",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/health/stocks",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/health",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/health/invoices",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  }
+}
+
