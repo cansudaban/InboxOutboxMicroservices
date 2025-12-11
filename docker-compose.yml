@@ -20,11 +20,11 @@ services:
     networks:
       - microservice_network
 
-  order-service:
+  job-service:
     build:
       context: .
-      dockerfile: OrderService/Dockerfile
-    container_name: order-service
+      dockerfile: JobService/Dockerfile
+    container_name: job-service
     ports:
       - "5001:80"
     environment:
@@ -41,11 +41,11 @@ services:
       timeout: 10s
       retries: 3
 
-  stock-service:
+  application-service:
     build:
       context: .
-      dockerfile: StockService/Dockerfile
-    container_name: stock-service
+      dockerfile: ApplicationService/Dockerfile
+    container_name: application-service
     ports:
       - "5002:80"
     environment:
@@ -62,11 +62,11 @@ services:
       timeout: 10s
       retries: 3
 
-  billing-service:
+  notification-service:
     build:
       context: .
-      dockerfile: BillingService/Dockerfile
-    container_name: billing-service
+      dockerfile: NotificationService/Dockerfile
+    container_name: notification-service
     ports:
       - "5003:80"
     environment:
@@ -93,9 +93,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - order-service
-      - stock-service
-      - billing-service
+      - job-service
+      - application-service
+      - notification-service
     networks:
       - microservice_network
     volumes:

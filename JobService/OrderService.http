@@ -1,0 +1,31 @@
+@JobService_HostAddress = http://localhost:5001
+
+### Get all jobs
+GET {{JobService_HostAddress}}/api/jobs
+Accept: application/json
+
+###
+
+### Get job by id
+GET {{JobService_HostAddress}}/api/jobs/{{jobId}}
+Accept: application/json
+
+###
+
+### Post a new job
+POST {{JobService_HostAddress}}/api/jobs
+Content-Type: application/json
+
+{
+  "companyName": "TechCorp Inc.",
+  "jobTitle": "Senior Software Engineer",
+  "jobDescription": "We are looking for an experienced software engineer to join our team.",
+  "location": "Istanbul, Turkey",
+  "employmentType": "Full-time",
+  "salaryMin": 80000,
+  "salaryMax": 120000,
+  "requiredSkills": ["C#", ".NET", "Microservices", "RabbitMQ", "Docker"],
+  "applicationDeadline": "2025-12-31T23:59:59Z"
+}
+
+###

@@ -1,0 +1,25 @@
+@NotificationService_HostAddress = http://localhost:5003
+
+### Get all notifications
+GET {{NotificationService_HostAddress}}/api/notifications
+Accept: application/json
+
+###
+
+### Get notification by id
+GET {{NotificationService_HostAddress}}/api/notifications/{{notificationId}}
+Accept: application/json
+
+###
+
+### Get notifications by job id
+GET {{NotificationService_HostAddress}}/api/notifications/job/{{jobId}}
+Accept: application/json
+
+###
+
+### Resend notification
+PATCH {{NotificationService_HostAddress}}/api/notifications/{{notificationId}}/resend
+Accept: application/json
+
+###

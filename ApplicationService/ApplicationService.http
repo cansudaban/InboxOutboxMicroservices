@@ -1,0 +1,36 @@
+@ApplicationService_HostAddress = http://localhost:5002
+
+### Get all applications
+GET {{ApplicationService_HostAddress}}/api/applications
+Accept: application/json
+
+###
+
+### Get application by id
+GET {{ApplicationService_HostAddress}}/api/applications/{{applicationId}}
+Accept: application/json
+
+###
+
+### Get applications by job id
+GET {{ApplicationService_HostAddress}}/api/applications/job/{{jobId}}
+Accept: application/json
+
+###
+
+### Create a new application
+POST {{ApplicationService_HostAddress}}/api/applications
+Content-Type: application/json
+
+{
+  "jobId": "{{jobId}}",
+  "applicantName": "Jane Doe",
+  "applicantEmail": "jane.doe@example.com",
+  "applicantPhone": "+90 555 123 4567",
+  "resume": "https://example.com/resumes/jane-doe.pdf",
+  "coverLetter": "I am very interested in this position...",
+  "yearsOfExperience": 5,
+  "skills": ["C#", ".NET", "Microservices", "Azure", "Docker"]
+}
+
+###
